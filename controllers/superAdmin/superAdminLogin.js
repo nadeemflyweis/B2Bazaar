@@ -1,6 +1,6 @@
 var bcrypt = require("bcryptjs");
 var jwt = require("jsonwebtoken");
-var UserDB = require("../../modules/userModel");
+var AdminDB = require("../../modules/superAdminModel");
 
 if (typeof localStorage === "undefined" || localStorage === null) {
   const LocalStorage = require("node-localstorage").LocalStorage;
@@ -9,7 +9,7 @@ if (typeof localStorage === "undefined" || localStorage === null) {
 
 module.exports = (req, res, next) => {
   const { email, password } = req.body;
-  UserDB.findOne({ email: email })
+  AdminDB.findOne({ email: email })
     .exec()
     .then((result) => {
       if (result.length < 1) {
@@ -49,7 +49,7 @@ module.exports = (req, res, next) => {
     })
     .catch((err) => {
       res.json({
-       
+        
         msg: "User password/E-mail may be wrong",
       });
     });

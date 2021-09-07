@@ -12,10 +12,10 @@ const cartUpdate = require("../controllers/cart/cartUpdate");
 const cartDelete = require("../controllers/cart/cartDelete");
 
 //  Routes
-router.post("/create", auth, cartCreate);
-router.get("/find", auth, cartFind);
-router.get("/find/:id", auth, cartFindOne);
-router.put("/update/:id", auth, cartUpdate);
-router.delete("/delete/:id", auth, cartDelete);
+router.post("/create", cartCreate);
+router.get("/find",  cartFind);
+router.get("/find/:id",  cartFindOne);
+router.put("/update/:id",  cartUpdate);
+router.delete("/delete/:id",  cartDelete);
 
 module.exports = router;

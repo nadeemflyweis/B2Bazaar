@@ -20,7 +20,7 @@ const userDelete = require("../controllers/user/userDelete");
 
 
 // --------------------- Routes---------------------------
-router.get("/find", auth, userFindAll);
+router.get("/find",  userFindAll);
 router.get("/find/:id",  userFindOne);
 router.put("/update/:id", userUpdate);
 router.delete("/delete/:id",  userDelete);

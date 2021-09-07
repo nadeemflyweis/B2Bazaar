@@ -3,7 +3,7 @@ var express = require("express");
 var path = require("path");
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
-var passport= require("passport")
+var passport = require("passport");
 require("dotenv").config({ path: "./.env" });
 var indexRouter = require("./routes/indexRoutes");
 
@@ -44,8 +44,14 @@ dbConnect();
 app.use(passport.initialize());
 
 //----------------------- Routing: -----------------------
-app.use("/",indexRouter);
+app.use("/", indexRouter);
 
+// page not found error handling  middleware
+app.use("*", (req, res, next) => {
+  res.status(201).json({
+    message: "Path not found/ Check your URL properly",
+  });
+});
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
   next(createError(404));
@@ -59,7 +65,6 @@ app.use(function (err, req, res, next) {
 
   // render the error page
   res.status(err.status || 500);
- 
 });
 
 module.exports = app;

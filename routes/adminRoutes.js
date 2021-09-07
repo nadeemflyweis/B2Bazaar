@@ -17,7 +17,7 @@ const adminDelete = require("../controllers/admin/adminDelete");
 router.get("/find", adminFind);
 router.get("/find/:id", adminFindOne);
 router.put("/update/:id", adminUpdate);
-router.delete("/delete/:id", auth, adminDelete);
+router.delete("/delete/:id",  adminDelete);
 
 //  User Logins
 router.post("/login", adminLogin);

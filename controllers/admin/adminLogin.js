@@ -49,7 +49,7 @@ module.exports = (req, res, next) => {
     })
     .catch((err) => {
       res.json({
-        error: err,
+       
         msg: "User password/E-mail may be wrong",
       });
     });

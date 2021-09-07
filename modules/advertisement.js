@@ -11,6 +11,10 @@ const addSchema = new mongoose.Schema(
       type: mongoose.Schema.Types.ObjectId,
       ref: "Tag",
     },
+    productObjectId: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Product",
+    },
 
     bannerName: {
       type: String,
